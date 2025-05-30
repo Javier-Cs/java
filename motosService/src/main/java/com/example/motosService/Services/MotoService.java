@@ -31,5 +31,8 @@ public class MotoService {
         }
         return false;
     }
+    public List<MotoEntity> MotoByUserId(int userId) {
+        return motoRepository.findByUserId(userId);
+    }
 
 }

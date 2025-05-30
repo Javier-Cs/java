@@ -32,4 +32,8 @@ public class CarroService {
         return false;
     }
 
+    public List<CarroEntity> carroByUserId(int id){
+        return carroRepository.carroByIdUser(id);
+    }
+
 }

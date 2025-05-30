@@ -61,6 +61,15 @@ public class MotoController {
         }
     }
 
+    @GetMapping("/motoByIdUser/{id}")
+    public ResponseEntity<List<MotoEntity>> getAllMotoUserId(@PathVariable("id") int userId){
+        List<MotoEntity> motosUser = motoService.MotoByUserId(userId);
+        if (motosUser == null || motosUser.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(motosUser);
+    }
+
 
 
 

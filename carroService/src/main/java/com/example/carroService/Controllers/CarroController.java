@@ -59,4 +59,13 @@ public class CarroController {
         }
     }
 
+    @GetMapping("/carroByIdUser/{id}")
+    public ResponseEntity<List<CarroEntity>> getAllCarroUserId(@PathVariable ("id") int id) {
+        List<CarroEntity> getCarrosByIdUser = carroService.carroByUserId(id);
+        if (getCarrosByIdUser==null || getCarrosByIdUser.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(getCarrosByIdUser);
+    }
+
 }
