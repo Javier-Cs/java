@@ -1,5 +1,6 @@
 package com.prueba.ServicioDeUsuario.Services;
 
+import com.prueba.ServicioDeUsuario.ClientsFeignClients.CarroFeignClient;
 import com.prueba.ServicioDeUsuario.Entity.User01;
 import com.prueba.ServicioDeUsuario.Models.CarroModel;
 import com.prueba.ServicioDeUsuario.Models.MotoModel;
@@ -19,6 +20,20 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CarroFeignClient carroFeignClient;
+
+    public CarroModel saveCarro(int idUser, CarroModel carro) {
+        carro.setIdUser(idUser);
+        return carroFeignClient.save(carro);
+
+    }
+
+
+
+
+
 
 
     public List<CarroModel> listaDeCarros(int userId) {

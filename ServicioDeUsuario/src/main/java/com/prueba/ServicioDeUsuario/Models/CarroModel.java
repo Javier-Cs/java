@@ -6,4 +6,5 @@ import lombok.Data;
 public class CarroModel {
     private String marca;
     private String modelo;
+    private int idUser;
 }

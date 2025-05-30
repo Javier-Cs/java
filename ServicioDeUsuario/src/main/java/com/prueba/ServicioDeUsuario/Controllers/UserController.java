@@ -17,6 +17,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    @PostMapping("/carro/{userId}")
+    public ResponseEntity<CarroModel> guardarCarro(@PathVariable("userId") int userId, @RequestBody CarroModel carro) {
+        CarroModel carroModel = userService.saveCarro(userId, carro);
+        return ResponseEntity.ok(carroModel);
+    }
+
+
     @GetMapping("/allUsers")
     public ResponseEntity<List<User01>> listarUsuarios() {
         List<User01> usuarios = userService.getAllUsers();
@@ -35,15 +43,15 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/saveUser")
-    public ResponseEntity<User01> guardarUsuario(@RequestBody User01 usuario) {
-        try {
-            User01 usuar = userService.saveUser(usuario);
-            return ResponseEntity.status(HttpStatus.CREATED).body(usuar);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
+//    @PostMapping("/saveUser")
+//    public ResponseEntity<User01> guardarUsuario(@RequestBody User01 usuario) {
+//        try {
+//            User01 usuar = userService.saveUser(usuario);
+//            return ResponseEntity.status(HttpStatus.CREATED).body(usuar);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+//        }
+//    }
 
     @GetMapping("/carros/{id}")
     public ResponseEntity<List<CarroModel>> getAllCarrosUserId(@PathVariable("id") int id) {
