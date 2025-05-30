@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CarroRepository extends JpaRepository<CarroEntity, Integer> {
-    List<CarroEntity> carroByIdUser(int id);
+    List<CarroEntity> idUser(int id);
 }

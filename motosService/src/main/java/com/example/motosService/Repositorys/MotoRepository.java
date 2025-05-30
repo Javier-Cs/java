@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface MotoRepository extends JpaRepository<MotoEntity, Integer> {
-    List<MotoEntity> findByUserId(int userId);
+    List<MotoEntity> idUser(int id);
 
 }

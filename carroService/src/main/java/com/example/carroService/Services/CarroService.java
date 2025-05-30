@@ -33,7 +33,7 @@ public class CarroService {
     }
 
     public List<CarroEntity> carroByUserId(int id){
-        return carroRepository.carroByIdUser(id);
+        return carroRepository.idUser(id);
     }
 
 }
